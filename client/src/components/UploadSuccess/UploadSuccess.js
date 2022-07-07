@@ -1,7 +1,6 @@
 import React from "react";
 import LinkImage from "../LinkImage/LinkImage";
 import style from "./UploadSuccess.module.css";
-// sdasdsadas dsad dsad sdsa
 
 export default function UploadedSuccess() {
   return (

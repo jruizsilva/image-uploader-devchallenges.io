@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <div className={style.container}>
-        {/* <Uploader /> */}
+        <Uploader />
         {/* <Uploading /> */}
-        <UploadedSuccess />
+        {/* <UploadedSuccess /> */}
       </div>
       <footer className={style.footer}>
         <span className={style.footer_created}>created by</span>{" "}
