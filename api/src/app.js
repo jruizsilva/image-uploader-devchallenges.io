@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import helmet from "helmet";
 import imagesRoute from "./routes/images.routes";
 
 const app = express();
