@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./Uploader.module.css";
 import styled from "styled-components";
+import Uploading from "../Uploading/Uploading";
 
 const DropImageArea = styled.div`
   border: ${(props) => (props.preview ? "none" : "1px dashed #97bef4")};
@@ -19,7 +20,6 @@ const ImageContainer = styled.div`
   margin: ${(props) => (props.preview ? "0" : "36px auto")};
   margin-bottom: ${(props) => (props.preview ? "0" : "32px")};
   border-radius: ${(props) => (props.preview ? "12px" : "0")};
-  text-align: center;
 `;
 
 const Image = styled.img`
@@ -31,6 +31,7 @@ const Image = styled.img`
 
 export default function Uploader() {
   const [preview, setPreview] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const changeImagePreview = (e) => {
     if (!e.target.files[0]) return;
@@ -44,8 +45,15 @@ export default function Uploader() {
   };
 
   const uploadImage = () => {
+    setUploading(true);
+    setPreview("");
     console.log("Subiendo imagen");
+    setTimeout(() => {
+      setUploading(false);
+    }, 1000);
   };
+
+  if (uploading) return <Uploading />;
 
   return (
     <div className={style.container}>

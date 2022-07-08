@@ -25,3 +25,11 @@
 .footer_created {
   font-weight: 600;
 }
+.home {
+  left: 8px;
+  top: 8px;
+  position: fixed;
+}
+.home:hover {
+  cursor: pointer;
+}
