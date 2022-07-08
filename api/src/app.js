@@ -6,7 +6,7 @@ import sequelize from "./database/db";
 import User from "./models/User";
 
 const app = express();
-// Settings
+// Settings  asd
 app.set("port", process.env.PORT || 3001);
 
 // Middlewares
