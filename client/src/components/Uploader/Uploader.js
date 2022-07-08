@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./Uploader.module.css";
 import styled from "styled-components";
 import Uploading from "../Uploading/Uploading";
+import axios from "axios";
 
 const DropImageArea = styled.div`
   border: ${(props) => (props.preview ? "none" : "1px dashed #97bef4")};
@@ -44,13 +45,17 @@ export default function Uploader() {
     };
   };
 
-  const uploadImage = () => {
-    setUploading(true);
+  const uploadImage = async () => {
+    // setUploading(true);
     setPreview("");
     console.log("Subiendo imagen");
-    setTimeout(() => {
-      setUploading(false);
-    }, 1000);
+    try {
+      const response = await axios.post("api/image/upload", preview);
+      console.log(response?.data);
+      // setUploading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (uploading) return <Uploading />;
