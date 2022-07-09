@@ -14,7 +14,7 @@ const uploadImage = async (req, res) => {
     res.json({ data: imageAdded, msg: "Image upload successfully" });
   } catch (error) {
     console.log(error);
-    res.json(error);
+    res.json({ msg: "Something went wrong" });
   }
 };
 

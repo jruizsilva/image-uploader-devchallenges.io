@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import style from "./Uploader.module.css";
 import styled from "styled-components";
 import Uploading from "../Uploading/Uploading";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { uploadImage } from "../../redux/ducks/image";
+import { useEffect } from "react";
 
 const DropImageArea = styled.div`
   border: ${(props) => (props.preview ? "none" : "1px dashed #97bef4")};
@@ -32,7 +35,15 @@ const Image = styled.img`
 
 export default function Uploader() {
   const [preview, setPreview] = useState("");
-  const [uploading, setUploading] = useState(false);
+  const dispatch = useDispatch();
+  const { loading, image } = useSelector((state) => state.image);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading === false && image) {
+      navigate("/success");
+    }
+  });
 
   const changeImagePreview = (e) => {
     if (!e.target.files[0]) return;
@@ -45,21 +56,12 @@ export default function Uploader() {
     };
   };
 
-  const uploadImage = async () => {
-    setUploading(true);
+  const handleClick = async () => {
     setPreview("");
-    console.log("Subiendo imagen");
-    try {
-      const response = await axios.post("api/images", { image: preview });
-      console.log(response.data);
-      setUploading(false);
-    } catch (error) {
-      console.log(error);
-      setUploading(false);
-    }
+    dispatch(uploadImage({ image: preview }));
   };
 
-  if (uploading) return <Uploading />;
+  if (loading) return <Uploading />;
 
   return (
     <div className={style.container}>
@@ -92,7 +94,7 @@ export default function Uploader() {
           Choose a file
         </button>
         {preview && (
-          <button className={style.button} onClick={uploadImage}>
+          <button className={style.button} onClick={handleClick}>
             Upload image
           </button>
         )}
