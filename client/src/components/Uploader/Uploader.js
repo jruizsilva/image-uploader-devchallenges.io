@@ -36,14 +36,7 @@ const Image = styled.img`
 export default function Uploader() {
   const [preview, setPreview] = useState("");
   const dispatch = useDispatch();
-  const { loading, image } = useSelector((state) => state.image);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (loading === false && image) {
-      navigate("/success");
-    }
-  });
 
   const changeImagePreview = (e) => {
     if (!e.target.files[0]) return;
@@ -59,9 +52,8 @@ export default function Uploader() {
   const handleClick = async () => {
     setPreview("");
     dispatch(uploadImage({ image: preview }));
+    navigate("/uploading");
   };
-
-  if (loading) return <Uploading />;
 
   return (
     <div className={style.container}>

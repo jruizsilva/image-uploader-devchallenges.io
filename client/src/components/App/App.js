@@ -5,6 +5,7 @@ import UploadedSuccess from "../UploadSuccess/UploadSuccess";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Uploading from "../Uploading/Uploading";
 
 function App() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function App() {
       <div className={style.container}>
         <Routes>
           <Route exact path="/" element={<Uploader />} />
+          <Route exact path="/uploading" element={<Uploading />} />
           <Route
             exact
             path="/success"

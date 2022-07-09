@@ -39,11 +39,11 @@ export const uploadImage = (body) => {
       const response = await axios.post("api/images", body);
       console.log(response.data);
       dispatch({ type: FETCH_UPLOAD_SUCCESS, payload: response.data });
-      // setTimeout(() => resetMessages(), 3000);
+      setTimeout(() => dispatch(resetMessages()), 3000);
     } catch (error) {
       console.log(error);
       dispatch({ type: FETCH_UPLOAD_ERROR, payload: error.msg });
-      // setTimeout(() => resetMessages(), 3000);
+      setTimeout(() => dispatch(resetMessages()), 3000);
     }
   };
 };
