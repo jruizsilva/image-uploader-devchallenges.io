@@ -36,7 +36,14 @@ export const uploadImage = (body) => {
   return async (dispatch) => {
     dispatch({ type: FETCH_UPLOAD_IMAGE });
     try {
-      const response = await axios.post("api/images", body);
+      // const response = await axios.post("api/images", body);
+      const response = await axios({
+        url: "api/images",
+        method: "POST", // PUT, DELETE, UPDATE, PATCH
+        data: body, // the form data the include the large file
+        maxContentLength: "infinity", // for large content, base64
+        maxBodyLength: "infinity", // do the same above
+      });
       console.log(response.data);
       dispatch({ type: FETCH_UPLOAD_SUCCESS, payload: response.data });
       setTimeout(() => dispatch(resetMessages()), 3000);

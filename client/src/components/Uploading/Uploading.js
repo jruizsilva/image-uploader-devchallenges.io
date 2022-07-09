@@ -12,6 +12,9 @@ export default function Uploading() {
     if (loading === false && image) {
       navigate("/success");
     }
+    if (loading === false && !image) {
+      navigate("/");
+    }
   }, [loading, image]);
 
   return (

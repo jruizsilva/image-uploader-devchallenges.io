@@ -21,7 +21,7 @@ export default function LinkImage() {
           Copy Link
         </button>
       </CopyToClipboard>
-      <Toaster position="bottom-right" />
+      <Toaster />
     </div>
   );
 }
