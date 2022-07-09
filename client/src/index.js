@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App/App";
@@ -7,11 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/configureStore";
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
 
 axios.defaults.baseURL =
-  process.env.REACT_APP_HEROKU_API || "http://localhost:3001";
+  process.env.REACT_APP_HEROKU || "http://localhost:3001";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
