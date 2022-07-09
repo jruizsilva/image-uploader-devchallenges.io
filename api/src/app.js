@@ -7,7 +7,7 @@ import User from "./models/User";
 import imagesRoute from "./routes/image.routes";
 
 const app = express();
-// Settings  asd
+// Settings
 app.set("port", process.env.PORT || 3001);
 
 // Middlewares
@@ -18,9 +18,6 @@ app.use(cors());
 app.use(helmet());
 
 // Routes
-app.get("/", (req, res) => {
-  User.create({ name: "Jonathan" }).then((user) => res.json(user));
-});
 app.use(imagesRoute);
 
 sequelize
