@@ -1,6 +1,5 @@
 import { Sequelize } from "sequelize";
 import { local, deploy } from "../config";
-// asd
 
 const sequelize =
   process.env.NODE_ENV === "production"

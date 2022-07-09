@@ -18,21 +18,15 @@ const {
 
 module.exports = {
   local: {
-    username: LOCAL_DB_USERNAME || "postgres",
-    password: LOCAL_DB_PASSWORD || "admin",
-    host: LOCAL_DB_HOST || "localhost",
-    database: LOCAL_DB_DATABASE || "database",
+    username: LOCAL_DB_USERNAME,
+    password: LOCAL_DB_PASSWORD,
+    host: LOCAL_DB_HOST,
+    database: LOCAL_DB_DATABASE,
   },
   deploy: {
     username: DEPLOY_DB_USERNAME,
     password: DEPLOY_DB_PASSWORD,
     host: DEPLOY_DB_HOST,
     database: DEPLOY_DB_DATABASE,
-  },
-  cloudinary: {
-    cloud_name: CLOUDINARY_NAME,
-    api_key: CLOUDINARY_API_KEY,
-    api_secret: CLOUDINARY_API_SECRET,
-    preset: CLOUDINARY_PRESET,
   },
 };
