@@ -3,6 +3,6 @@ import { getUser } from "../controllers/user.controllers";
 
 const router = Router();
 
-router.get("api/users/:userId", getUser);
+router.get("/api/users/:userId", getUser);
 
 export default router;

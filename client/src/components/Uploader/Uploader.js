@@ -46,15 +46,16 @@ export default function Uploader() {
   };
 
   const uploadImage = async () => {
-    // setUploading(true);
+    setUploading(true);
     setPreview("");
     console.log("Subiendo imagen");
     try {
-      const response = await axios.post("api/image/upload", preview);
-      console.log(response?.data);
-      // setUploading(false);
+      const response = await axios.post("api/images", { image: preview });
+      console.log(response.data);
+      setUploading(false);
     } catch (error) {
       console.log(error);
+      setUploading(false);
     }
   };
 

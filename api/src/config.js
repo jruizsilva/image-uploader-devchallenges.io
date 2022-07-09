@@ -10,6 +10,10 @@ const {
   DEPLOY_DB_PASSWORD,
   DEPLOY_DB_HOST,
   DEPLOY_DB_DATABASE,
+  CLOUDINARY_NAME,
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+  CLOUDINARY_PRESET,
 } = process.env;
 
 module.exports = {
@@ -20,9 +24,15 @@ module.exports = {
     database: LOCAL_DB_DATABASE || "database",
   },
   deploy: {
-    username: DEPLOY_DB_USERNAME || "postgres",
-    password: DEPLOY_DB_PASSWORD || "admin",
-    host: DEPLOY_DB_HOST || "localhost",
-    database: DEPLOY_DB_DATABASE || "database",
+    username: DEPLOY_DB_USERNAME,
+    password: DEPLOY_DB_PASSWORD,
+    host: DEPLOY_DB_HOST,
+    database: DEPLOY_DB_DATABASE,
+  },
+  cloudinary: {
+    cloud_name: CLOUDINARY_NAME,
+    api_key: CLOUDINARY_API_KEY,
+    api_secret: CLOUDINARY_API_SECRET,
+    preset: CLOUDINARY_PRESET,
   },
 };

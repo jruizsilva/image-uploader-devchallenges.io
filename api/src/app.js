@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import sequelize from "./database/db";
 import User from "./models/User";
+import imagesRoute from "./routes/image.routes";
 
 const app = express();
 // Settings  asd
@@ -20,6 +21,7 @@ app.use(helmet());
 app.get("/", (req, res) => {
   User.create({ name: "Jonathan" }).then((user) => res.json(user));
 });
+app.use(imagesRoute);
 
 sequelize
   .sync({ force: false })
